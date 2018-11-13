@@ -1,0 +1,93 @@
+body {
+    margin:0;
+    background-color: #b38b6d;
+    text-align: center;
+    align-content: center;
+}
+header {
+    margin-top: 0;
+    background-color: #151B54;
+    color: beige;
+    padding: 10px;
+}
+h1 {
+    margin:  0 auto;
+}
+
+ul {
+    width: 30%;
+    margin: auto;
+}
+
+li {
+    list-style-type: none;
+    padding: 20px;
+    background-color: #a8c0fc;
+}
+
+li:hover {
+    list-style-type: none;
+    padding: 20px;
+    background-color: #a8fbfc;
+}
+
+img {
+    cursor: pointer;
+    height: 2%;
+    margin-left: 1em;
+    float: right;
+}
+
+img:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+form {
+    text-align: left;
+}
+input {
+    width: 100%;
+    margin-bottom: 1em;
+
+}
+
+dialog {
+    border-radius: 10px;
+    background-color: beige;
+}
+
+#output {
+    display: none;
+}
+
+.modal {
+    margin: 0;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    cursor: pointer;
+    color: beige;
+    background-color: #400080;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    color: beige;
+    background-color: #004080;
+    border: none;
+    outline: none;
+    padding: 10px;
+}

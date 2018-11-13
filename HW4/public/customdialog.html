@@ -1,0 +1,32 @@
+<html !DOCTYPE html>
+    <head>
+        <title>Custom Dialog</title>
+    </head>
+    <style>
+        output {
+            border: 2px double black;
+            padding: 5px;
+        }
+    </style>
+    <body>
+        <dialog id="favDialog">
+            <form method="dialog">
+              <p><label id="label">
+              </label></p>
+              <menu id="menu">
+              </menu>
+            </form>
+        </dialog>
+          
+        <menu>
+            <button id="alertButton" onClick="customAlert('Alert pressed!')">Alert</button>
+            <button id="confirmButton" onClick="customConfirm('Do you confirm this?')">Confirm</button> 
+            <button id="promptButton" onClick="customPrompt('What is your name?')">Prompt</button>
+        </menu>
+          
+          <div id="output"></div>
+
+          <script src="./customdialog.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
+    </body>
+</html>

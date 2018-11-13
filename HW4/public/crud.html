@@ -1,0 +1,41 @@
+<html !DOCTYPE html>
+    <head>
+        <title>Movie CRUD</title>
+    </head>
+    <style>
+        #output {
+            display: none;
+        }
+    </style>
+    <body>
+        <dialog id="favDialog">
+            <form method="dialog">
+              <span id="label">
+              </span>
+              <menu id="menu">
+              </menu>
+            </form>
+        </dialog>
+        <h1>Big List Of Movies</h1>
+        <ul id="movieList">
+        </ul>
+        <p id="areThereMovies"></p>
+        <menu>
+            <button id="confirmButton" onClick="addMovieDialog()">Add Movie</button>
+        </menu>
+          
+        <div id="output"></div>
+
+          <script src="./movie.js"></script>
+          <script src="./customdialog.js"></script>
+          <script>
+              tag = document.getElementById('areThereMovies');
+              if(localStorage.length === 0){
+                  tag.innerHTML = 'No movies currently listed';
+              } else {
+                  tag.innerHTML = '';
+              }
+          </script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
+    </body>
+</html>

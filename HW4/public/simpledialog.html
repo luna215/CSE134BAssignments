@@ -1,0 +1,67 @@
+<html !DOCTYPE html>
+    <head>
+        <meta name="author" content="Paul Luna">
+        <title>Simple Dialogs</title> 
+        <style>
+            output {
+                border: 2px double black;
+                padding: 5px;
+            }
+        </style> 
+    </head>
+    <body>
+        <header>
+            <h1>Simple Dialogs?</h1>
+        </header>
+        <button onClick="simpleAlert()">Alert</button>
+        <button onClick="confirmScript()">Confirm</button>
+        <button onClick="regularPrompt()">Prompt</button>
+        <button onClick="saferPrompt()">Safer Prompt</button>
+        <hr>
+        <div id="output">
+
+        </div>
+        <script>
+            var result;
+            function simpleAlert() {
+                document.getElementById("output").innerHTML = '';
+                setTimeout(function() { alert('Alert pressed!');}, 1);
+            }
+
+            function confirmScript(){
+                document.getElementById("output").innerHTML = '';
+                setTimeout(function() {
+                    result = confirm('Do you confirm?');
+                    document.getElementById("output").innerHTML = `<output>Confirm result: ${result}</output>`;
+                }, 1);
+            }
+
+            function regularPrompt() {
+                document.getElementById("output").innerHTML = '';
+                element = document.getElementById('output');
+                setTimeout(() => {  
+                    result = prompt("What is your name");
+                    if(result!='' && result !== null){
+                        element.innerHTML = `<output>Prompt result: ${result}</output>`;
+                    } else {
+                        element.innerHTML = '<output>User did not input anything</output>';
+                    }
+                }, 1);
+            }
+
+            function saferPrompt() {
+                document.getElementById("output").innerHTML = '';
+                element = document.getElementById('output');
+                setTimeout(function() {
+                    result = prompt("What is your name");
+                    if(result!='' && result !== null){
+                        element.innerHTML = DOMPurify.sanitize(`<output>Prompt result: ${result}</output>`);
+                    } else {
+                        element.innerHTML = '<output>User did not input anything</output>';
+                    }
+                }, 1);
+            }
+        </script> 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
+    </body>
+</html>
