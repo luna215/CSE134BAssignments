@@ -31,8 +31,8 @@ var customDialog = (function() {
     }
 
     addMovie = function () {
-        title = document.getElementById('title').value;
-        year = document.getElementById('year').value;
+        title = DOMPurify.sanitize(document.getElementById('title').value);
+        year = DOMPurify.sanitize(document.getElementById('year').value);
         rating = document.getElementById('rating').value;
         movie = {title: title, year: year, rating: rating};
         localStorage.setItem(title, JSON.stringify(movie));
@@ -73,8 +73,8 @@ var customDialog = (function() {
     }  
 
     editMovie = function () {
-        title = document.getElementById('title').value;
-        year = document.getElementById('year').value;
+        title = DOMPurify.sanitize(document.getElementById('title').value);
+        year = DOMPurify.sanitize(document.getElementById('year').value);
         rating = document.getElementById('rating').value;
         movie = {title: title, year: year, rating: rating};
         localStorage.removeItem(editingMovie);

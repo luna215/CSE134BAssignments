@@ -33,7 +33,7 @@ var customDialog = (function() {
     }
 
     addMovie = function () {
-        title = document.getElementById('title').value;
+        title = DOMPurify.sanitize(document.getElementById('title').value);
         year = document.getElementById('year').value;
         rating = document.getElementById('rating').value;
         movie = {title: title, year: year, rating: rating};
@@ -46,9 +46,9 @@ var customDialog = (function() {
     addMovieToDOM = function (movie) {
         movieItem = document.createElement('li');
         movieItem.setAttribute('id', movie.title);
-        movieItem.innerHTML = `${movie.title} (${movie.year}) - Rated: ${movie.rating} 
+        movieItem.innerHTML = DOMPurify.sanitize(`${movie.title} (${movie.year}) - Rated: ${movie.rating} 
                                 <img onClick="editMovieDialog('${movie.title}')" src="./pencil-edit-button.svg">
-                                <img onClick="deleteMovieDialog('${movie.title}')" src="./delete.svg">`;
+                                <img onClick="deleteMovieDialog('${movie.title}')" src="./delete.svg">`);
         movieList.appendChild(movieItem);
     }
 
@@ -77,8 +77,8 @@ var customDialog = (function() {
     }  
 
     editMovie = function () {
-        title = document.getElementById('title').value;
-        year = document.getElementById('year').value;
+        title = DOMPurify.sanitize(document.getElementById('title').value);
+        year = DOMPurify.sanitize(document.getElementById('year').value);
         rating = document.getElementById('rating').value;
         movie = {title: title, year: year, rating: rating};
         localStorage.removeItem(editingMovie);
